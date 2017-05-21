@@ -46,7 +46,7 @@ let g:solarized_termcolors=256
 syntax enable
 set background=dark
 colorscheme solarized
-"command SW :execute ':silent w !sudo tee % > /dev/null' | :edit!
+command! SW :execute ':silent w !sudo tee % > /dev/null' | :edit!
 " ------- config --------
 "set autochdir
 nmap <F3> i<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><Esc>
@@ -182,7 +182,7 @@ autocmd BufNewFile,BufReadPost *.go set filetype=go
 " -------fix register bullshit-----
 xnoremap p pgvy
 "--------command to edit single quoted file names-----------
-"command -nargs=? -bang -bar E :execute "e<bang> ".fnameescape(system("echo -n ".<q-args>))
+command! -nargs=? -bang -bar E :execute "e<bang> ".fnameescape(system("echo -n ".<q-args>))
 "-------easy motion config---------
 " <Leader>f{char} to move to {char}
 map  <Leader>f <Plug>(easymotion-bd-f)
