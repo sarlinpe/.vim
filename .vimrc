@@ -1,3 +1,6 @@
+scriptencoding utf-8
+set encoding=utf-8
+
 " All of your Plugins must be added before the following line
 set nocompatible              " be iMproved, required
 filetype off                  " required
