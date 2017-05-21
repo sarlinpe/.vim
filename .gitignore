@@ -1,8 +1,11 @@
-# --- CUSTOM ---
+## --- CUSTOM ---
 undo/
+# ignore plugins
+/bundle/*
+# except Vundle itself
+!/bundle/Vundle.vim
 
-# ----- PYTHON ----
-
+## ----- PYTHON ----
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -106,7 +109,7 @@ ENV/
 .mypy_cache/
 
 
-# ----- MACOS ----
+## ----- MACOS ----
 *.DS_Store
 .AppleDouble
 .LSOverride
