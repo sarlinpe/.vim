@@ -45,7 +45,8 @@ Plugin 'yggdroot/indentline'
 Plugin 'scrooloose/syntastic'
 Plugin 'rking/ag.vim'
 
-let g:solarized_termcolors=256
+"let g:solarized_termcolors=16
+set t_Co=16
 syntax enable
 set background=dark
 colorscheme solarized
@@ -180,6 +181,13 @@ source ~/.vim/a.vim
 "noremap <C-S-a> :A<cr>
 " -------filetypes--------
 autocmd BufNewFile,BufReadPost *.go set filetype=go
+augroup filetypedetect
+    au BufRead,BufNewFile *.launch set filetype=xml
+    au BufRead,BufNewFile *.world set filetype=xml
+    au BufRead,BufNewFile *.gazebo set filetype=xml
+    au BufRead,BufNewFile *.xacro set filetype=xml
+augroup END
+autocmd FileType xml setlocal shiftwidth=2 tabstop=2
 " -------tags-------------
 "set tags+=~/.ctags/*/tags
 " -------fix register bullshit-----
