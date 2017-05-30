@@ -45,8 +45,8 @@ Plugin 'yggdroot/indentline'
 Plugin 'scrooloose/syntastic'
 Plugin 'rking/ag.vim'
 
-"let g:solarized_termcolors=16
-set t_Co=16
+let g:solarized_termcolors=256
+"set t_Co=16 " For Ubuntu
 syntax enable
 set background=dark
 colorscheme solarized
