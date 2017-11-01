@@ -8,4 +8,4 @@
 * Additional plugins installation:
   * `YouCompleteMe`: buid `./bundle/YouCompleteMe/install.py --clang-completer`
   * `Tagbar`: run `sudo apt-get install exuberant-ctags`
-  * `Airline`: install the patched [`powerline-fonts`](https://github.com/powerline/fonts)
+  * `Airline`: install the patched [`powerline-fonts`](https://github.com/powerline/fonts) by running `./install_powerline.sh`
