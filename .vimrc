@@ -162,6 +162,7 @@ let g:tagbar_type_lua = {
             \ 'm:module'
             \]
 \}
+nmap <F8> :TagbarToggle<CR>
 " -------airline--------
 let g:airline_section_c = '%<%F%m %#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#'
 let g:airline_powerline_fonts = 1
