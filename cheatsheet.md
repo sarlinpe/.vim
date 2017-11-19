@@ -24,8 +24,12 @@
 - Enlarge/scrink current pane: `+`/`-`
 
 # Git
-- Status: `Gstatus`
-- Diff: `Gvdiff`
+- Status: `:Gstatus`
+  - Move between files: `<Ctrl>n`/`<Ctrl>p`
+  - Stage/unstage file: `-`
+  - Start commit: `cc`
+  - Save changes `:x`
+- Diff: `:Gvdiff`
   - Stage diff: `do` (when stage file in focus)
   - Jump to next/previous diff: `<Ctrl>j`/`<Ctrl>k`
-- Commit: `Gcommit`
+- Commit: `:Gcommit`
