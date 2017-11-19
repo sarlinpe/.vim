@@ -44,6 +44,7 @@ Plugin 'tmhedberg/SimpylFold'
 Plugin 'yggdroot/indentline'
 Plugin 'scrooloose/syntastic'
 Plugin 'rking/ag.vim'
+Plugin 'tpope/vim-fugitive'
 
 let g:solarized_termcolors=256
 "set t_Co=16 " For Ubuntu
@@ -51,6 +52,8 @@ syntax enable
 set background=dark
 colorscheme solarized
 command! SW :execute ':silent w !sudo tee % > /dev/null' | :edit!
+set colorcolumn=90 "code width limit
+highlight ColorColumn ctermbg=black guibg=lightgrey
 " ------- config --------
 "set autochdir
 nmap <F3> i<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><Esc>
@@ -110,19 +113,13 @@ if version >= 700
     map <C-t> <Esc>:tabnew<CR>
 endif
 nnoremap gp `[v`]
-"map <c-j> <c-w>j
-"map <c-k> <c-w>k
-"map <c-l> <c-w>l
-"map <c-h> <c-w>h
 noremap <silent> <c-s> :w<cr>
 noremap <c-a> ggvG$
 nnoremap <Up> gk
 nnoremap <Down> gj
-"noremap <c-c> y
-"noremap <c-v> p
 "make < > shifts keep selection
-nnoremap <C-j>  <C-w>j
-nnoremap <C-k>  <C-w>k
+nnoremap <expr> <C-j> &diff ? ']c' : '<C-w>j'
+nnoremap <expr> <C-k> &diff ? '[c' : '<C-w>k'
 nnoremap <C-h>  <C-w>h
 nnoremap <C-l>  <C-w>l
 nnoremap <silent> + :exe "vertical resize " . (winwidth(0) +15 )<CR>
@@ -162,6 +159,7 @@ let g:tagbar_type_lua = {
             \ 'm:module'
             \]
 \}
+nmap <F8> :TagbarToggle<CR>
 " -------airline--------
 let g:airline_section_c = '%<%F%m %#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#'
 let g:airline_powerline_fonts = 1
