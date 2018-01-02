@@ -118,8 +118,8 @@ noremap <c-a> ggvG$
 nnoremap <Up> gk
 nnoremap <Down> gj
 "make < > shifts keep selection
-nnoremap <expr> <C-j> &diff ? ']c' : '<C-w>j'
-nnoremap <expr> <C-k> &diff ? '[c' : '<C-w>k'
+nnoremap <C-j>  <C-w>j
+nnoremap <C-k>  <C-w>k
 nnoremap <C-h>  <C-w>h
 nnoremap <C-l>  <C-w>l
 nnoremap <silent> + :exe "vertical resize " . (winwidth(0) +15 )<CR>
@@ -127,6 +127,8 @@ nnoremap <silent> - :exe "vertical resize " . (winwidth(0) -15)<CR>
 nnoremap CD :lcd %:p:h<CR>
 vnoremap < <gv
 vnoremap > >gv
+nnoremap <expr> <C-c> &diff ? ']c' : '<C-c>'
+nnoremap <expr> <C-v> &diff ? '[c' : '<C-v>'
 " ------ nerdtree ------
 let NERDTreeShowBookmarks=1
 let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
