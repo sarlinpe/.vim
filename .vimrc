@@ -188,6 +188,7 @@ augroup filetypedetect
     au BufRead,BufNewFile *.xacro set filetype=xml
 augroup END
 autocmd FileType xml setlocal shiftwidth=2 tabstop=2
+autocmd FileType tex setlocal shiftwidth=2 tabstop=2
 " -------tags-------------
 noremap <A-;> <C-]>
 noremap <A-.> <C-T>
