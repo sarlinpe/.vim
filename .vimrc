@@ -61,7 +61,7 @@ imap <F3> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
 nmap <F4> i<C-R>=strftime("%Y%m%d%Hh%Mm%Ss")<CR><Esc>
 imap <F4> <C-R>=strftime("%Y%m%d%Hh%Mm%Ss")<CR>
 set scrolloff=0
-set tags+=tags;/
+set tags+=tags;$HOME
 "set exrc                       " Allows per-directory .vimrc --> dangerous
 set statusline+=%F
 let mapleader = ","
@@ -189,7 +189,11 @@ augroup filetypedetect
 augroup END
 autocmd FileType xml setlocal shiftwidth=2 tabstop=2
 " -------tags-------------
-"set tags+=~/.ctags/*/tags
+noremap <A-;> <C-]>
+noremap <A-.> <C-T>
+noremap <A-,> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+noremap <A-?> :split <CR>:exec("tag ".expand("<cword>"))<CR>
+noremap <A-/> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 " -------fix register bullshit-----
 xnoremap p pgvy
 "--------command to edit single quoted file names-----------
