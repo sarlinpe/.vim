@@ -189,6 +189,12 @@ augroup filetypedetect
 augroup END
 autocmd FileType xml setlocal shiftwidth=2 tabstop=2
 autocmd FileType tex setlocal shiftwidth=2 tabstop=2
+" -------latex-----------
+let g:tex_conceal = ""
+au BufRead *.tex setlocal spell spelllang=en_us
+" -------markdown--------
+let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
+au BufRead *.md setlocal spell
 " -------tags-------------
 noremap <A-;> <C-]>
 noremap <A-.> <C-T>
