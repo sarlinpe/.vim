@@ -190,6 +190,7 @@ augroup END
 autocmd FileType xml setlocal shiftwidth=2 tabstop=2
 autocmd FileType tex setlocal shiftwidth=2 tabstop=2
 " -------latex-----------
+let g:tex_flavor = "latex"
 let g:tex_conceal = ""
 au BufRead *.tex setlocal spell spelllang=en_us
 " -------markdown--------
