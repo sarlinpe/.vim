@@ -31,11 +31,11 @@ Plugin 'szw/vim-tags'
 Plugin 'majutsushi/tagbar'
 Plugin 'valloric/youcompleteme'
 "Plugin 'SirVer/ultisnips'
-Plugin 'wting/gitsessions.vim'
+"Plugin 'wting/gitsessions.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'xolox/vim-session'
-Plugin 'xolox/vim-misc'
+"Plugin 'xolox/vim-session'
+"Plugin 'xolox/vim-misc'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'haya14busa/incsearch-easymotion.vim'
 Plugin 'haya14busa/incsearch.vim'
@@ -43,7 +43,7 @@ Plugin 'haya14busa/incsearch-fuzzy.vim'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'yggdroot/indentline'
 Plugin 'scrooloose/syntastic'
-Plugin 'rking/ag.vim'
+"Plugin 'rking/ag.vim' --> replace with ack.vim
 Plugin 'tpope/vim-fugitive'
 
 let g:solarized_termcolors=256
@@ -52,7 +52,7 @@ syntax enable
 set background=dark
 colorscheme solarized
 command! SW :execute ':silent w !sudo tee % > /dev/null' | :edit!
-set colorcolumn=90 "code width limit
+set colorcolumn=80 "code width limit
 highlight ColorColumn ctermbg=black guibg=lightgrey
 " ------- config --------
 "set autochdir
@@ -87,7 +87,7 @@ set list
 set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
 "set timeout t8Ximeoutlen=1000 ttimeout ttimeoutlen=100
 set timeout timeoutlen=100 ttimeout ttimeoutlen=100
-set clipboard=unnamedplus
+set clipboard=unnamed
 set cursorline
 if &term =~ '^screen'
     set ttymouse=xterm2
@@ -248,13 +248,15 @@ map <Leader>n :noh<CR>
 
 "--------simply fold----------
 set nofoldenable
-autocmd BufEnter *.py set foldexpr=SimpylFold(v:lnum) foldmethod=expr
-autocmd BufLeave *.py set foldexpr< foldmethod<
+"autocmd BufEnter *.py set foldexpr=SimpylFold(v:lnum) foldmethod=expr
+"autocmd BufLeave *.py set foldexpr< foldmethod<
 "--------syntastic--------
 "set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
+let g:syntastic_python_python_exec = 'python3'
+let g:syntastic_python_checkers = ['python', 'flake8']
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 2
 let g:syntastic_check_on_open = 1
