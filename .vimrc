@@ -284,10 +284,4 @@ vnoremap ,c :call NERDComment(0,"toggle")<CR>
 let g:ctrlp_cmd='CtrlP :pwd'
 let g:ctrlp_max_files=0
 let g:ctrlp_max_depth=40
-let g:ctrlp_user_command = 'cd %s;
-  \ commonfilter="\.(jpg|bmp|png|jar|7z|zip|tar|gz|tgz|bz)$";
-  \ if [ ! -r ".ctrlpignore" ]; then
-  \   find . -type f | grep -Evi "$commonfilter";
-  \ else
-  \   find . -type f | grep -vF "$(cat .ctrlpignore)" | grep -Evi "$commonfilter";
-  \ fi'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|env\|\.tar\|\.gz\|\.jpg\|\.png\|\.pyc'
