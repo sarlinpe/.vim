@@ -106,6 +106,7 @@ set shortmess+=A
 set noswapfile
 set path+=./**
 autocmd BufWritePre *.pl,*.py,*.cc,*.h,*.hpp,*.cpp,*.c %s/\s\+$//e
+autocmd FileType html setlocal shiftwidth=2 tabstop=2
 " ------shortcuts-------
 "Vim 7 specific mappings
 nnoremap <Space> <NOP>
