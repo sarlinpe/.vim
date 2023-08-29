@@ -87,7 +87,7 @@ set list
 set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
 "set timeout t8Ximeoutlen=1000 ttimeout ttimeoutlen=100
 set timeout timeoutlen=100 ttimeout ttimeoutlen=100
-set clipboard=unnamed
+set clipboard=unnamedplus
 set cursorline
 if &term =~ '^screen'
     set ttymouse=xterm2
@@ -257,7 +257,9 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_python_python_exec = 'python3'
-let g:syntastic_python_checkers = ['python', 'flake8']
+"let g:syntastic_python_checkers = ['python', 'flake8']
+autocmd FileType python let b:syntastic_checkers = findfile('pylintrc', getcwd()) != '' ? ['pylint'] : ['python', 'flake8']
+
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 2
 let g:syntastic_check_on_open = 1
@@ -284,4 +286,9 @@ vnoremap ,c :call NERDComment(0,"toggle")<CR>
 let g:ctrlp_cmd='CtrlP :pwd'
 let g:ctrlp_max_files=0
 let g:ctrlp_max_depth=40
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|env\|\.tar\|\.gz\|\.jpg\|\.png\|\.pyc'
+"let g:ctrlp_custom_ignore = '.git$\|env$\|\.tar$\|\.gz$\|\.jpg$\|\.png$\|\.pyc$'
+let g:ctrlp_clear_cache_on_exit=0
+let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
+let g:ctrlp_user_command = 'cd %s;
+  \ filefilter="\.(jpg|bmp|png|jar|7z|zip|tar|gz|tgz|bz|pyc)$";
+  \ find . \( -path ./env -o -path ./.git \) -prune -false -o -type f | grep -Evi "$filefilter";'
